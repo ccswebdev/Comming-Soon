@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --background: #07070a;
+  --text: #ffffff;
+  --muted: #9a9aa5;
+  --border: rgba(255, 255, 255, 0.1);
+  --card: rgba(255, 255, 255, 0.045);
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* =========================
+   Background
+========================= */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    transparent 80%
+  );
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  background: #7c3aed;
+  top: -250px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glow-2 {
+  width: 350px;
+  height: 350px;
+  background: #2563eb;
+  right: -150px;
+  bottom: -150px;
+  opacity: 0.15;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.container {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100vh;
+
+  max-width: 1200px;
+  margin: auto;
+
+  padding: 32px 40px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    #6366f1
+  );
+
+  box-shadow:
+    0 0 30px rgba(139, 92, 246, 0.35);
+}
+
+/* =========================
+   Hero
+========================= */
+
+.hero {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 80px 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px 15px;
+
+  border: 1px solid var(--border);
+  border-radius: 100px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #c7c7d1;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  backdrop-filter: blur(10px);
+
+  margin-bottom: 28px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.1),
+    0 0 12px rgba(34, 197, 94, 0.8);
+
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* =========================
+   Heading
+========================= */
+
+h1 {
+  max-width: 850px;
+
+  font-size: clamp(
+    48px,
+    7vw,
+    88px
+  );
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 800;
+}
+
+h1 span {
+  display: block;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 20%,
+    var(--accent-light) 55%,
+    #6366f1 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 580px;
+
+  margin-top: 28px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* =========================
+   Countdown
+========================= */
+
+.countdown {
+  display: flex;
+  align-items: center;
+
+  margin-top: 48px;
+}
+
+.time-box {
+  min-width: 85px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.time-box span {
+  font-size: 36px;
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+}
+
+.time-box small {
+  color: #777783;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+}
+
+.separator {
+  color: #454550;
+
+  font-size: 26px;
+
+  margin: 0 6px;
+
+  transform: translateY(-8px);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  margin-top: 45px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 22px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #08080a;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button span {
+  font-size: 20px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 40px rgba(255, 255, 255, 0.12);
+}
+
+.button:hover span {
+  transform: translateX(4px);
+}
+
+.subtext {
+  margin-top: 20px;
+
+  color: #555560;
+
+  font-size: 12px;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 25px;
+
+  border-top: 1px solid var(--border);
+
+  color: #555560;
+
+  font-size: 11px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.socials a {
+  color: #777783;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: color 0.2s ease;
+}
+
+.socials a:hover {
+  color: white;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    padding: 25px 20px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  h1 {
+    font-size: clamp(
+      44px,
+      14vw,
+      64px
+    );
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .countdown {
+    margin-top: 38px;
+  }
+
+  .time-box {
+    min-width: 58px;
+  }
+
+  .time-box span {
+    font-size: 25px;
+  }
+
+  .time-box small {
+    font-size: 8px;
+  }
+
+  .separator {
+    font-size: 20px;
+    margin: 0 2px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 18px;
+
+    text-align: center;
+  }
+
+  .logo-text {
+    font-size: 12px;
+  }
+}
