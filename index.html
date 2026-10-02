@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>24/7HO | Timesheet Management — Something's ticking…</title>
+<meta name="description" content="24/7HO is a new way to track time, approve timesheets and get paid. Coming soon.">
+<style>
+:root{--red:#F23A34;--mid:#F7562F;--orange:#F98343;--ink:#5A6B9E;--deep:#2E3A66;--bg:#fff}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 20px;position:relative;overflow-x:hidden}
+body:before,body:after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.22;z-index:0}
+body:before{width:420px;height:420px;background:var(--red);top:-140px;left:-120px}
+body:after{width:420px;height:420px;background:var(--orange);bottom:-140px;right:-120px}
+main{position:relative;z-index:1;max-width:720px;width:100%}
+.logo{width:min(360px,80%);height:auto;margin-bottom:28px}
+.pill{display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border:1px solid #d9deee;border-radius:999px;padding:6px 14px;margin-bottom:20px}
+.pill i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-right:8px;animation:pulse 1.6s infinite}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;font-weight:800;margin-bottom:16px}
+.grad{background:linear-gradient(90deg,var(--red),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.word{display:inline-block;min-width:5.2ch;transition:opacity .35s,transform .35s}
+.word.out{opacity:0;transform:translateY(8px)}
+p.lead{font-size:1.1rem;line-height:1.6;color:var(--ink);max-width:560px;margin:0 auto 32px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:32px}
+.card{border:1px solid #e6e9f4;border-radius:16px;padding:18px 14px;background:#fff;box-shadow:0 6px 20px rgba(242,58,52,.06)}
+.card b{display:block;font-size:1.5rem;margin-bottom:6px;background:linear-gradient(90deg,var(--red),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card span{font-size:.92rem;color:var(--ink);line-height:1.4}
+.teaser{font-size:1rem;color:var(--deep);font-weight:600;margin-bottom:6px}
+.sub{font-size:.9rem;color:var(--ink)}
+footer{position:relative;z-index:1;margin-top:40px;font-size:.8rem;color:#8a95b8}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+@media (prefers-reduced-motion:reduce){.pill i{animation:none}.word{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="/247ho-logo.png" alt="24/7HO Timesheet Management">
+  <div class="pill"><i></i>Something's ticking</div>
+  <h1>Time never stops.<br><span class="grad">Neither should your <span class="word" id="word">timesheets</span>.</span></h1>
+  <p class="lead">We're quietly building a smarter way to track hours, get approvals and send invoices — so the work you've done never waits to be paid.</p>
+  <div class="cards">
+    <div class="card"><b>Track</b><span>Log every hour in seconds, from anywhere.</span></div>
+    <div class="card"><b>Approve</b><span>Clients sign off without the email chase.</span></div>
+    <div class="card"><b>Get paid</b><span>Timesheets turn into invoices on their own.</span></div>
+  </div>
+  <p class="teaser">Want a first look? You'll hear it here first.</p>
+  <p class="sub">Launching soon — check back, or ask us for early access.</p>
+</main>
+<footer>© 2026 <strong>247ho.com</strong> • All rights reserved.</footer>
+<script>
+(function(){
+  var w=document.getElementById('word'),L=['timesheets','approvals','invoices','payments'],i=0;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  setInterval(function(){
+    w.classList.add('out');
+    setTimeout(function(){i=(i+1)%L.length;w.textContent=L[i];w.classList.remove('out')},350);
+  },2400);
+})();
+</script>
+</body>
+</html>
